@@ -7178,7 +7178,7 @@ class TCPDF {
 		} else {
 			$ximg = $x;
 		}
-		
+
 		if ($ismask OR $hidden) {
 			// image is not displayed
 			return $info['i'];
@@ -9860,8 +9860,9 @@ class TCPDF {
 				$out .= ' >> >>';
 			}
 			$font = $this->getFontBuffer('helvetica');
-			$out .= ' /DA (/F'.$font['i'].' 0 Tf 0 g)';
-			$out .= ' /Q '.(($this->rtl)?'2':'0');
+            $fontI = $font['i'] ?? '';
+            $out .= ' /DA (/F'.$fontI.' 0 Tf 0 g)';
+            $out .= ' /Q '.(($this->rtl)?'2':'0');
 			//$out .= ' /XFA ';
 			$out .= ' >>';
 			// signatures
